@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 
 import authRouter from './router/auth.router.js';
+import movieRouter from './router/movie.router.js';
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/auth', authRouter);
+app.use('/api/movie-list', movieRouter);
+
 
 app.listen(PORT, () => {    
     console.log('Server is running at http://localhost:', PORT);
